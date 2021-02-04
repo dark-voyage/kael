@@ -18,6 +18,8 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-date']
+        verbose_name = "Post"
+        verbose_name_plural = "Posts"
 
     def __str__(self):
         return self.title
