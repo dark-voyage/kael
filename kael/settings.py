@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'kael.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DATABASE'),
+        'USER': os.environ.get('DATABASE_USER'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        'HOST': os.environ.get('DATABASE_URL'),
+        'PORT': os.environ.get('DATABASE_PORT'),
     }
 }
 
@@ -134,4 +138,5 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
-django_heroku.settings(locals())
+if os.environ.get('ENVY') == "heroku":
+    django_heroku.settings(locals())
