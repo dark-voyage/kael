@@ -14,9 +14,10 @@ router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [
     path('', redirect.home),
+    path('admin/', admin.site.urls),
+    path('gh/<str:gh>', redirect.github),
     path('user/', include(router.urls)),
     path('post/', include('posts.urls')),
-    path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 
 ]
