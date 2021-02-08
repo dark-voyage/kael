@@ -9,7 +9,7 @@ admin.site.index_title = "Superuser Panel :: Genemator's"
 
 urlpatterns = [
     path('', redirect.home),
-    path('admin/', admin.site.urls),
+    path('sudo/', admin.site.urls),
     path('gh/<str:gh>', redirect.github),
     path('user/', include(users.urls)),
     path('post/', include('posts.urls')),
