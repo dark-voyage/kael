@@ -2,7 +2,7 @@ from django.shortcuts import redirect
 
 
 def home(request):
-    response = redirect('https://genemator.me/')
+    response = redirect('https://genemator.uz/')
     return response
 
 
